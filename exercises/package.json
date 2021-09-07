@@ -10,5 +10,8 @@
     "testEnvironment": "node"
   },
   "author": "stephen grider",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^27.1.0"
+  }
 }

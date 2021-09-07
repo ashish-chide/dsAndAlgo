@@ -4,13 +4,27 @@
 // method of the linked list.  Assume that n will always
 // be less than the length of the list.
 // --- Examples
-//    const list = new List();
-//    list.insertLast('a');
-//    list.insertLast('b');
-//    list.insertLast('c');
-//    list.insertLast('d');
-//    fromLast(list, 2).data // 'b'
+const { LinkedList } = require("./linkedlist.js");
 
-function fromLast(list, n) {}
+function fromLast(list, n) {
+  let fast = list.head;
+  let slow = list.head;
+  while (n > 0) {
+    fast = fast.next;
+    n--;
+  }
+  if (fast.next) {
+    slow = slow.next;
+    fast = fast.next;
+  }
+  return slow;
+}
+
+const list = new LinkedList();
+list.insertLast("a");
+list.insertLast("b");
+list.insertLast("c");
+list.insertLast("d");
+fromLast(list, 0).data; // 'b'
 
 module.exports = fromLast;

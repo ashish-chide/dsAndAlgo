@@ -17,6 +17,27 @@
 //       '### '
 //       '####'
 
-function steps(n) {}
+function steps(n, row = 0, stair = "") {
+  //   for (let vertical = 0; vertical < n; vertical++) {
+  //     let str = "";
+  //     for (let horizontal = 0; horizontal < n; horizontal++) {
+  //       if (horizontal <= vertical) {
+  //         str = str + "#";
+  //       } else {
+  //         str = str + " ";
+  //       }
+  //     }
+  //     console.log(str);
+  //   }
+  if (n === row) return;
 
+  if (n === stair.length) {
+    console.log(stair);
+    return steps(n, row + 1);
+  }
+  const add = stair.length <= row ? "#" : " ";
+  return steps(n, row, stair + add);
+}
+
+console.log(steps(5));
 module.exports = steps;

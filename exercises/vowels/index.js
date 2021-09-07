@@ -7,6 +7,10 @@
 //   vowels('Why do you ask?') --> 4
 //   vowels('Why?') --> 0
 
-function vowels(str) {}
+function vowels(str) {
+  const vowels = "aeiou";
+  let consonantRegex = new RegExp(`(?![${vowels}])[a-z]`, "gi");
+  return str.replace(consonantRegex, "").length;
+}
 
 module.exports = vowels;
