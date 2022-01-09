@@ -16,4 +16,18 @@ function palindrome(str) {
   });
 }
 
-module.exports = palindrome;
+// for integers
+
+function palindromeInteger(num) {
+  let rem;
+  let final = 0;
+  let temp = num;
+  while (num > 0) {
+    rem = num % 10;
+    num = Math.floor(num / 10);
+    final = final * 10 + rem;
+  }
+  return final == temp;
+}
+
+module.exports = { palindrome, palindromeInteger };

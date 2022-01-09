@@ -56,4 +56,24 @@ function merge(left, right) {
   return [...results, ...right, ...left];
 }
 
-module.exports = { bubbleSort, selectionSort, mergeSort, merge };
+function quickSort(arr) {
+  if (arr.length <= 1) return arr;
+
+  let pivot = arr[arr.length - 1];
+  const left = [];
+  const right = [];
+
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (pivot > arr[i]) {
+      left.push(arr[i]);
+    } else {
+      right.push(arr[i]);
+    }
+  }
+
+  return [...quickSort(left), pivot, ...quickSort(right)];
+}
+
+console.log(quickSort([3, 2, 67, 8, 9, 12, 0, 4]));
+
+module.exports = { bubbleSort, selectionSort, mergeSort, merge, quickSort };
